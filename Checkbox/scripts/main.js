@@ -39,11 +39,29 @@ function markRange(startInbox, endInbox) {
   [startInbox, endInbox] = [...arguments].sort((a, b) => a - b);
   let checkbox;
   let label;
+
+  let markChecked;
+  if (
+    InboxItems[startInbox].children[0].checked &&
+    InboxItems[endInbox].children[0].checked
+  ) {
+    markChecked = true;
+  } else if (
+    !InboxItems[startInbox].children[0].checked &&
+    !InboxItems[endInbox].children[0].checked
+  ) {
+    markChecked = false;
+  }
   for (let i = startInbox; i <= endInbox; i++) {
     checkbox = InboxItems[i].children[0];
     label = InboxItems[i].children[1];
-    label.style.textDecoration = "line-through";
-    checkbox.checked = true;
+    if (markChecked) {
+      label.style.textDecoration = "line-through";
+      checkbox.checked = true;
+    } else {
+      label.style.textDecoration = "none";
+      checkbox.checked = false;
+    }
   }
   resetRangeIndicies();
 }
@@ -64,6 +82,5 @@ window.addEventListener("keydown", e => {
 window.addEventListener("keyup", e => {
   if (e.keyCode === KEY_CODE_SHIFT) {
     shiftHeld = false;
-    start = -1;
   }
 });
