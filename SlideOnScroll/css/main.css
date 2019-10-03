@@ -56,14 +56,26 @@ body {
   clear: both;
 }
 
+.slide-in {
+  visibility: hidden;
+}
+
 .slide-in.align-left {
   transform: translateX(-200px);
+  opacity: 0;
   transition: all 1s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .slide-in.align-right {
   transform: translateX(200px);
+  opacity: 0;
   transition: all 1s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.slide-in.active {
+  visibility: visible;
+  transform: translateX(0);
+  opacity: 1;
 }
