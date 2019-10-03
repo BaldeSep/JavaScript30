@@ -2,7 +2,7 @@
   --background-color: #2962b3;
   --text-background-color: #fff;
   --text-color: #333;
-  --container-width: 900px;
+  --container-width: 600px;
 }
 
 *,
@@ -23,7 +23,7 @@ body {
 .container {
   max-width: var(--container-width);
   margin: 15px auto;
-  padding: 15px;
+  padding: 25px;
   text-align: left;
 
   background-color: var(--text-background-color);
@@ -33,12 +33,14 @@ body {
 }
 
 .container h1 {
-  margin-bottom: 15px;
-  font-size: 2rem;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
 }
 
 .container p {
-  margin: 10px 0;
+  margin: 20px 0;
+  font-size: 1.2rem;
 }
 
 .align-left {
