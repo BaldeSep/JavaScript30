@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Reference Vs Copy</title>
+  </head>
+  <body>
+    <script>
+      // With primitives, numbers, strings, and booleans, the value
+      // is copied when using the assignment operator.
+      //   let age = 100;
+      //   let age2 = age;
+      //   console.log(age, age2);
+      //   age = 200;
+      //   console.log(age, age2);
+
+      //   let name = "Balde";
+      //   let name2 = name;
+      //   console.log(name, name2);
+      //   name = "Baldemar";
+      //   console.log(name, name2);
+
+      //   Lets use arrays
+      let players = ["Baldemar", "Jhonny", "Carlton", "Louis"];
+
+      //   Make a copy of "players" array
+      const team = players;
+
+      console.log(players, team);
+
+      //   You may think that this will work as intended
+      players.splice(1, 1);
+
+      console.log(players, team);
+      //   output: (3) ["Baldemar", "Carlton", "Louis"] (3) ["Baldemar", "Carlton", "Louis"]
+
+      //   Both variables point the same reference to a single array, so we can't just expect both
+      //   variables to maintain seperate arrays we need a correct way to copy arrays to seperate varaibles.
+
+      //   How do we make a copy of an array without just copying a reference? Well there are a fews ways to do that...
+
+      //   That slice function that the array object has can be used to get a copy of all the values within an array
+      const team2 = players.slice();
+      team2[2] = "Kimberly";
+      console.log(players, team2);
+      //   output: (3) ["Baldemar", "Carlton", "Louis"] (3) ["Baldemar", "Carlton", "Kimberly"]
+      // See not just a copy of the reference just a copy of the values.
+
+      //   This also works for copying an array by value
+      //   Use the concat function on an empty array "[]" and pass the array you want a copy of as an argument
+      const team3 = [].concat(players);
+      team3[0] = "Carlos";
+      console.log(team3, players);
+      //   output: (3) ["Carlos", "Carlton", "Louis"] (3) ["Baldemar", "Carlton", "Louis"]
+
+      // Lets use something newer and cooler.
+      //   ES6 introduced a way to "spread" the values of an array out so as to get a copy of the values in an array
+      // if you want to copy an array by value with spread operator put an ellipses in front of the array you want to copy.
+      // Ex: ...array, to put in an array wrap it in brackets, [...array]
+      const team4 = [...players];
+      team4[2] = "Hector";
+      console.log(team4, players);
+      //   output: (3) ["Baldemar", "Carlton", "Hector"] (3) ["Baldemar", "Carlton", "Louis"]
+
+      //   Lastly you can use the "from" function from the Array object
+      const team5 = Array.from(players);
+      team5.push("William");
+      console.log(team5, players);
+      //   output: (4) ["Baldemar", "Carlton", "Louis", "William"] (3) ["Baldemar", "Carlton", "Louis"]
+
+      //   Lets look at objects next
+      const person = {
+        name: "Baldemar",
+        age: 20
+      };
+
+      //   Lets try to make a copy
+      const leader = person;
+      leader.position = "Leader";
+
+      console.log(leader, person);
+      //   output: {name: "Baldemar", age: 20, position: "Leader"} {name: "Baldemar", age: 20, position: "Leader"}
+      //   See it copied by reference not by value
+
+      //   To copy object by value or clone an object use Object.assign(targetObject, [...SourceObject]), there can be more than one source
+      const leader2 = Object.assign({}, person, { name: "Erin" });
+      console.log(leader2, person);
+      //   output:{name: "Erin", age: 20, position: "Leader"} {name: "Baldemar", age: 20, position: "Leader"}
+
+      //   Only one level deep so if objects are values in this object then they will only be copied by reference, you need a deep copy to copy
+      // those by values
+
+      //   One way to deep clone is by using JSON.parse(JSON.stringify(obj)), this is often refered to as the poor man's deep clone.
+      // All it does it turn an object into a string then immediately back into an object so you are no longer copying by reference.
+      person.social = {
+        twitter: "@Balde"
+      };
+      const leader3 = JSON.parse(JSON.stringify(person));
+      leader3.social.twitter = "@jokerMan";
+      console.log(leader3, person);
+      // output:
+      // {name: "Baldemar", age: 20, position: "Leader", social: {…}}
+      // age: 20
+      // name: "Baldemar"
+      // position: "Leader"
+      // social: {twitter: "@jokerMan"}
+      // __proto__: Object
+
+      // {name: "Baldemar", age: 20, position: "Leader", social: {…}}
+      // age: 20
+      // name: "Baldemar"
+      // position: "Leader"
+      // social: {twitter: "@Balde"}
+      // __proto__: Object
+
+      //   Be careful with this method it works for objects more than one level deep but functions will not be stringified
+    </script>
+  </body>
+</html>
