@@ -55,6 +55,19 @@ body {
   cursor: pointer;
 }
 
+.list input {
+  display: none;
+}
+
+.list input + label::before {
+  content: "🔲";
+  margin-right: 10px;
+}
+
+.list input:checked + label::before {
+  content: "🎮";
+}
+
 .add-items {
   margin-top: 5px;
   display: flex;
