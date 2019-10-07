@@ -70,22 +70,23 @@ body {
 
 .add-items {
   margin-top: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 25px;
+  grid-gap: 3px;
 }
 
 .add-items input[type="text"] {
-  flex: 3;
+  grid-column: 1/3;
   padding: 5px;
-  margin-right: 5px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: #f4f4f4;
   outline-color: #000;
 }
 
 .add-items input[type="submit"] {
-  flex: 1;
+  grid-column: 3/-1;
   padding: 3px;
-  width: auto;
   background: #f8f8f8;
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: #333;
@@ -94,6 +95,29 @@ body {
 }
 
 .add-items input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.additional-controls {
+  margin-top: 3px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 25px;
+  grid-gap: 3px;
+}
+
+.additional-controls button {
+  grid-column: span 1;
+  padding: 3px;
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.additional-controls button:hover {
   background-color: #000;
   color: #fff;
 }
