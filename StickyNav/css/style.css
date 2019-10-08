@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #000;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  min-height: 50vh;
+  background: url("../images/header-bg.jpg") top center no-repeat / cover;
+  color: #fff;
+}
+
+h1 {
+  font-size: 7vw;
+}
+
+/* Navbar */
+nav {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 1s;
+  background: #000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.logo {
+  max-width: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: all 1s;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+a {
+  display: inline-block;
+  padding: 20px;
+  color: #aaa;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+/* container */
+main {
+  padding: 10%;
+  background: #aaa;
+}
+.paper {
+  display: block;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f2f2f2;
+}
+
+.paper p {
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 2rem;
+}
+
+.paper p:last-child {
+  margin-bottom: 0;
+}
