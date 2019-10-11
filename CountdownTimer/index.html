@@ -12,18 +12,25 @@
   <body>
     <div class="user-controls">
       <form action="" class="timer-input">
-        <button class="btn">20 Secs</button>
-        <button class="btn">Work 5</button>
-        <button class="btn">Quick 15</button>
-        <button class="btn">Snack 20</button>
-        <button class="btn">Lunch Break</button>
-        <input type="text" id="enter-minues" placeholder="Enter Minutes" />
+        <button class="btn" data-secs="20">20 Secs</button>
+        <button class="btn" data-secs="300">Work 5</button>
+        <button class="btn" data-secs="900">Quick 15</button>
+        <button class="btn" data-secs="1200">Snack 20</button>
+        <button class="btn" data-secs="3300">Lunch Break</button>
+        <input type="text" id="enter-minutes" placeholder="Enter Minutes" />
       </form>
     </div>
 
     <main class="container flex">
-      <h2 class="timer"></h2>
-      <p class="return-time"></p>
+      <h2 class="timer">
+        <span class="timer-hour">2</span>:<span class="timer-minutes">21</span>
+      </h2>
+      <p class="return-time">
+        Be Back at <span class="return-time-hour">2</span>:<span
+          class="return-time-minutes"
+          >08</span
+        >
+      </p>
     </main>
     <script src="scripts/main.js"></script>
   </body>
