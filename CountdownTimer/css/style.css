@@ -1,0 +1,91 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and HTML styling */
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.3rem;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    220deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(48, 48, 92, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+/* user controls */
+.user-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.timer-input {
+  display: flex;
+}
+
+.btn {
+  flex: auto;
+  padding: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background: inherit;
+  cursor: pointer;
+}
+
+#enter-minutes {
+  flex: 1;
+  padding: 5px;
+  text-align: left;
+  color: #333;
+  transition: all 0.2s ease-in;
+}
+
+#enter-minutes:focus {
+  flex: 2;
+}
+
+/* Timer Container */
+.container {
+  max-width: 50%;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  margin: 30px;
+  font-size: 7rem;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.return-time {
+  margin: 30px;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
