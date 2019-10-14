@@ -27,17 +27,14 @@ body {
 /* user controls */
 .user-controls {
   position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
 }
 
-.timer-input {
-  display: flex;
-}
-
 .btn {
-  flex: auto;
+  flex: 1;
   padding: 10px;
   font-size: 0.7rem;
   font-weight: 700;
@@ -48,16 +45,17 @@ body {
   cursor: pointer;
 }
 
-#enter-minutes {
+.timer-input {
   flex: 1;
+}
+
+#enter-minutes {
+  height: 100%;
+  width: 100%;
   padding: 5px;
   text-align: left;
   color: #333;
   transition: all 0.2s ease-in;
-}
-
-#enter-minutes:focus {
-  flex: 2;
 }
 
 /* Timer Container */
